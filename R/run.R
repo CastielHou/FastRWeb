@@ -56,8 +56,7 @@ URLenc <- function(x) unlist(lapply(x, URLencode))
 
 ### this maps the Rhttpd/Rserve direct HTTP API into .run
 .http.request <- function(url, query, body, headers) {
-  root <- getOption("FastRWeb.root")
-  if (is.null(root)) root <- getOption("fastrweb.root")
+  root <- getOption("fastrweb.root")
   if (is.null(root)) root <- "/var/FastRWeb"
 
   request <- list(uri=url, method='GET', c.type='', c.length=-1, body=NULL, client.ip='0.0.0.0', query.string='', raw.cookies='')
